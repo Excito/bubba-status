@@ -1,0 +1,8 @@
+Package: bubba-status
+Version: PACKAGE_MAJOR-PACKAGE_MINOR 
+Maintainer: Tor Krill <tor@excito.com>
+Section: admin
+Priority: optional
+Architecture: PARCH
+Installed-Size: ISIZE
+Description: Bubba-two hardware specific functionality such as led-control

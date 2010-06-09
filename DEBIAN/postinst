@@ -1,0 +1,22 @@
+#!/bin/sh -e
+
+# Bubba status 
+# Tor Krill <tor@excito.com>
+
+
+case "$1" in
+	configure)
+		if [  ! -e /etc/rc2.d/S??led_on ]; then
+				/usr/sbin/update-rc.d led_on start 99 0 2 .
+				/usr/sbin/update-rc.d led_blink stop 10 0 6 .
+		fi
+
+	;;
+	*)
+		echo "postinst called with unknown argument \`$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0
+

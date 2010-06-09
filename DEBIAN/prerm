@@ -1,0 +1,26 @@
+#!/bin/sh -e
+
+# Bubba status prerm
+# Tor Krill <tor@excito.com>
+
+case "$1" in
+
+	upgrade)
+	;;
+
+	remove)
+		if [ -e /etc/rc2.d/S??led_on ]; then
+			/usr/sbin/update-rc.d -f led_on remove
+			/usr/sbin/update-rc.d -f led_blink remove
+		fi
+	;;
+
+	deconfigure|failed-upgrade)
+	;;
+	*)
+		echo "prerm called with unknown argument \`$1'" >&2
+	;;
+
+esac
+
+exit 0

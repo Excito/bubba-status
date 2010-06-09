@@ -1,0 +1,6 @@
+#! /bin/sh
+
+if [ -e /sys/devices/platform/bubbatwo/ledmode ]; then
+	echo 32768 > /sys/devices/platform/bubbatwo/ledfreq
+	echo blink > /sys/devices/platform/bubbatwo/ledmode
+fi

@@ -1,0 +1,5 @@
+#! /bin/sh
+
+if [ -e /sys/devices/platform/bubbatwo/ledmode ]; then
+	echo lit > /sys/devices/platform/bubbatwo/ledmode
+fi
