@@ -1,0 +1,5 @@
+bubba-status (1.0) vincent; urgency=low
+
+  * initial debian package
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jun 2010 13:34:11 +0200

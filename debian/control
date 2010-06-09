@@ -1,0 +1,12 @@
+Source: bubba-status
+Section: admin
+Priority: standard
+Maintainer: Carl Fürstenberg <carl@excito.com>
+Build-Depends: debhelper (>= 7.2)
+Standards-Version: 3.8.4
+
+Package: bubba-status
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Bubba-two hardware specific functionality.
+ This package contains functionallity such as led-control
