@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 7.2)
 Standards-Version: 3.8.4
 
 Package: bubba-status
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Bubba-two hardware specific functionality.
  This package contains functionallity such as led-control

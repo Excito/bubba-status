@@ -1,6 +1,47 @@
 #! /bin/sh
+### BEGIN INIT INFO
+# Provides:          led_blink
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     
+# Default-Stop:      0 6
+# Short-Description: Blinking led
+### END INIT INFO
 
-if [ -e /sys/devices/platform/bubbatwo/ledmode ]; then
-	echo 32768 > /sys/devices/platform/bubbatwo/ledfreq
-	echo blink > /sys/devices/platform/bubbatwo/ledmode
-fi
+# Author: Carl Fürstenberg <carl@excito.com>
+#
+# Please remove the "Author" lines above and replace them
+# with your own name if you copy and modify this script.
+
+# Do NOT "set -e"
+
+doit() {
+	if [ -e /sys/devices/platform/bubbatwo/ledmode ]; then
+		echo 32768 > /sys/devices/platform/bubbatwo/ledfreq
+		echo blink > /sys/devices/platform/bubbatwo/ledmode
+	fi	  
+}
+
+
+case "$1" in
+	start)
+		doit
+		;;
+	stop)
+		doit
+		;;
+	status)
+		doit
+		;;
+	restart|force-reload)
+		doit
+		;;
+	*)
+		doit
+		#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
+		echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload}" >&2
+		exit 3
+		;;
+esac
+
+:

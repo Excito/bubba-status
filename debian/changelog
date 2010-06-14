@@ -1,3 +1,9 @@
+bubba-status (1.1) vincent; urgency=low
+
+  * make compatible init scripts 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 14 Jun 2010 16:21:14 +0200
+
 bubba-status (1.0) vincent; urgency=low
 
   * initial debian package
