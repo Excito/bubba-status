@@ -2,7 +2,7 @@
 ### BEGIN INIT INFO
 # Provides:          led_blink
 # Required-Start:    
-# Required-Stop:     
+# Required-Stop:     $all
 # Default-Start:     
 # Default-Stop:      0 6
 # Short-Description: Blinking led

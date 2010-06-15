@@ -4,5 +4,5 @@
 	dh $@
 
 override_dh_installinit:
-	dh_installinit --name=led_on --update-rcd-params="start 99 0 2 ."
+	dh_installinit --name=led_on --update-rcd-params="start 99 2 ."
 	dh_installinit --name=led_blink --update-rcd-params="stop 10 0 6 ."
