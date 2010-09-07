@@ -1,3 +1,9 @@
+bubba-status (1.1.5) hugo vincent; urgency=low
+
+  * Updated initscripts to set color if available
+
+ -- Tor Krill <tor@excito.com>  Tue, 07 Sep 2010 16:24:46 +0200
+
 bubba-status (1.1.4) hugo vincent; urgency=low
 
   * Moved "led_on" to depend on '$all'

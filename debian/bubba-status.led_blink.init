@@ -16,6 +16,11 @@
 # Do NOT "set -e"
 
 doit() {
+
+	if [ -e /sys/devices/platform/bubbatwo/color ]; then
+		echo 3 > /sys/devices/platform/bubbatwo/color
+	fi
+
 	if [ -e /sys/devices/platform/bubbatwo/ledmode ]; then
 		echo 32768 > /sys/devices/platform/bubbatwo/ledfreq
 		echo blink > /sys/devices/platform/bubbatwo/ledmode
