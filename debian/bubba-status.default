@@ -1,0 +1,31 @@
+## Configuration file for bubba-status
+## Default values are shown commented, fell free
+## to uncomment and adjust them to your needs
+
+## ----------- B3 ---------
+## B3 Colors
+## Here are the color codes available :
+## 0: blue
+## 1: red
+## 2: green
+## 3: cyan
+## 4: purple
+## 5: yellow
+## 6: white
+
+## Color to use on a running B3 
+## (will be set at the end of boot sequence)
+#B3_RUNNING_COLOR=0
+
+## Color to use on a rebooting/halting B3 
+## (will be set at the start of reboot/halt sequence)
+#B3_REBOOT_COLOR=4
+
+# ----------- Bubba|2 ---------
+
+## Reboot blink frequency used when rebooting/halting the Bubba|2
+## Recommended values are :
+## 32768: slow blink
+## 16384: medium blink
+## 8192 : fast blink
+#B2_REBOOT_FREQ=32768

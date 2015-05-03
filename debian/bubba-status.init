@@ -1,0 +1,84 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          bubba-status
+# Required-Start:    $all
+# Required-Stop:     $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Led status for Excito Bubba|2/B3 platforms.
+### END INIT INFO
+
+# Author: Charles Leclerc <leclerc.charles@gmail.com>
+
+# Do NOT "set -e"
+
+B3_RUNNING_COLOR=0
+B3_REBOOT_COLOR=4
+B2_REBOOT_FREQ=32768
+
+if test -f /etc/default/bubba-status; then
+    . /etc/default/bubba-status
+fi
+
+. /lib/lsb/init-functions
+
+DEV_ROOT=/sys/devices/platform/bubbatwo
+COLOR_DEV=$DEV_ROOT/color
+MODE_DEV=$DEV_ROOT/ledmode
+FREQ_DEV=$DEV_ROOT/ledfreq
+
+
+getB3ColorName() {
+	c=$(cat $COLOR_DEV)
+	if [ $c -eq 0 ] ; then
+		echo "blue"
+	elif [ $c -eq 1 ] ; then
+		echo "red"
+	elif [ $c -eq 2 ] ; then
+		echo "green"
+	elif [ $c -eq 3 ] ; then
+		echo "cyan"
+	elif [ $c -eq 4 ] ; then
+		echo "purple"
+	elif [ $c -eq 5 ] ; then
+		echo "yellow"
+	elif [ $c -eq 6 ] ; then
+		echo "white"
+	fi
+}
+
+case "$1" in
+	start|restart|force-reload)
+		log_begin_msg "Setting LED status (running)"
+		echo lit > $MODE_DEV
+		if [ -e $COLOR_DEV ]; then
+			echo $B3_RUNNING_COLOR > $COLOR_DEV
+		fi
+		log_end_msg 0
+		;;
+	stop)
+		log_begin_msg "Setting LED status (reboot/halt)"
+		if [ -e $COLOR_DEV ]; then
+			# B3
+			echo lit > $MODE_DEV
+			echo $B3_REBOOT_COLOR > $COLOR_DEV
+		else
+			# B2
+			echo $B2_REBOOT_FREQ > $FREQ_DEV
+			echo blink > $MODE_DEV
+		fi
+		log_end_msg 0
+		;;
+	status)
+		echo "LED mode:  $(cat $MODE_DEV)"
+		if [ -e $COLOR_DEV ]; then
+			echo "LED color: $(getB3ColorName)"
+		fi
+		;;
+	*)
+		echo "Usage: /etc/init.d/bubba-status {start|stop|status|restart|force-reload}" >&2
+		exit 1
+		;;
+esac
+
+exit 0

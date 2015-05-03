@@ -1,3 +1,9 @@
+bubba-status (2.0) wheezy; urgency=low
+
+  * Initscript rewrite for jessie
+
+ -- Charles Leclerc <leclerc.charles@gmail.com>  Sat, 02 May 2015 22:23:24 -0400
+
 bubba-status (1.1.5) hugo vincent; urgency=low
 
   * Updated initscripts to set color if available

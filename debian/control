@@ -1,12 +1,12 @@
 Source: bubba-status
 Section: admin
 Priority: standard
-Maintainer: Carl Fürstenberg <carl@excito.com>
+Maintainer: Charles Leclerc <leclerc.charles@gmail.com>
 Build-Depends: debhelper (>= 7.2)
 Standards-Version: 3.8.4
 
 Package: bubba-status
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Bubba-two hardware specific functionality.
- This package contains functionallity such as led-control
+Depends: ${misc:Depends}
+Description: Excito Bubba-two and B3 hardware specific functionality.
+ This package provides led control for system startup and shutdown.
